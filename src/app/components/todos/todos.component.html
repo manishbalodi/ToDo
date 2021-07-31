@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center " *ngFor="let todo of todos; let i = index;">
+    <div class="col-xs-12 align-items-stretch">
+      <div class="card {{(todo.completed ? 'green' : 'red')}} " style="width: 18rem;">
+        <div class="card-body " style="align-content: center;">
+          <h5 class="card-title">{{todo.title}}</h5>
+          <p class="card-text">{{todo.content}}</p>
+          <div class="text-center">
+            <button class="btn btn-sm {{(todo.completed ? 'btn-primary' : 'btn-success')}}" type="button"
+              (click)="onComplete(i)">{{todo.completed ? 'unfinished' : 'complete' }}</button> |
+            <button class="btn btn-danger btn-sm" type="button" (click)="onDelete(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
