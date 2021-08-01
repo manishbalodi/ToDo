@@ -1,4 +1,5 @@
 import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PlaceholderDirective } from 'src/app/placeholder/placeholder.directive';
 import { TodoformComponent } from '../todos/todoform/todoform.component';
 
@@ -10,6 +11,7 @@ import { TodoformComponent } from '../todos/todoform/todoform.component';
 export class HeaderComponent implements OnInit {
 
   @ViewChild(PlaceholderDirective ) todoFormHost : PlaceholderDirective | undefined;
+  private closeSub : Subscription | undefined;
 
   constructor(private cfResolver :ComponentFactoryResolver) { }
 
@@ -20,7 +22,13 @@ export class HeaderComponent implements OnInit {
     const formPOpUpFactory = this.cfResolver.resolveComponentFactory(TodoformComponent);
     const hostViewContainerRef = this.todoFormHost?.viewContainerRef;
     hostViewContainerRef?.clear();
-    hostViewContainerRef?.createComponent(formPOpUpFactory);
+    const componentRef =  hostViewContainerRef?.createComponent(formPOpUpFactory);
+
+    this.closeSub =  componentRef?.instance.close.subscribe(()=>{
+      this.closeSub?.unsubscribe();
+      hostViewContainerRef?.clear();
+    });
+    
   }
 
 }

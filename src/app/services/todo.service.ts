@@ -28,5 +28,8 @@ export class TodoService{
           console.log(this.todos);
       }
 
-      addTask(){}
+      addTask(todo : TodoModel){
+        this.todos.push(todo);
+        console.log(this.todos);
+      }
 }

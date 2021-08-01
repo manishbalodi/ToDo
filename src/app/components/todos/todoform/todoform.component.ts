@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TodoService } from 'src/app/services/todo.service';
+import { TodoModel } from '../todo.model';
 
 @Component({
   selector: 'app-todoform',
@@ -9,9 +11,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class TodoformComponent implements OnInit {
 
   todoForm : FormGroup;
+  @Output() close = new EventEmitter<void>();
 
-  constructor() { this.todoForm = new FormGroup({
-    'name' : new FormControl('',Validators.required),
+  constructor(private todoService : TodoService) 
+  { this.todoForm = new FormGroup({
+    'title' : new FormControl('',Validators.required),
     'content' : new FormControl('')
     //'completed' : new FormControl(false)
   });}
@@ -22,9 +26,18 @@ export class TodoformComponent implements OnInit {
   }
 
   onCancel(){
-
+    this.close.emit();
   }
 
-  onSubmit(){}
+  onSubmit(){
+    let todo : TodoModel = {
+      title : this.todoForm.value.title,
+      content : this.todoForm.value.content,
+      completed : false
+    };
+    console.log(todo);
+    this.todoService.addTask(todo);
+    this.todoForm.reset();
+  }
 
 }
