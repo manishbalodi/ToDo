@@ -4,17 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TodoformComponent } from './todos/todoform/todoform.component';
+import { TodoformComponent } from './components/todos/todoform/todoform.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PlaceholderDirective } from './placeholder/placeholder.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
     HeaderComponent,
-    TodoformComponent
+    TodoformComponent,
+    PlaceholderDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-todoform',
@@ -10,9 +10,15 @@ export class TodoformComponent implements OnInit {
 
   todoForm : FormGroup;
 
-  constructor() { }
+  constructor() { this.todoForm = new FormGroup({
+    'name' : new FormControl('',Validators.required),
+    'content' : new FormControl('')
+    //'completed' : new FormControl(false)
+  });}
 
   ngOnInit(): void {
+
+    
   }
 
   onCancel(){
