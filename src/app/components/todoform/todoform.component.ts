@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ComponentFactoryResolver, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/services/todo.service';
-import { TodoModel } from '../todo.model';
+import { TodoModel } from '../todos/todo.model';
+import { TodosComponent } from '../todos/todos.component';
 
 @Component({
   selector: 'app-todoform',
@@ -13,11 +15,11 @@ export class TodoformComponent implements OnInit {
   todoForm : FormGroup;
   @Output() close = new EventEmitter<void>();
 
-  constructor(private todoService : TodoService) 
+
+  constructor(private todoService : TodoService , private form : TodosComponent  , private http : HttpClient) 
   { this.todoForm = new FormGroup({
     'title' : new FormControl('',Validators.required),
     'content' : new FormControl('')
-    //'completed' : new FormControl(false)
   });}
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class TodoformComponent implements OnInit {
       completed : false
     };
     console.log(todo);
-    this.todoService.addTask(todo);
+    this.form.onAdd(todo);
     this.todoForm.reset();
   }
 

@@ -1,7 +1,9 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PlaceholderDirective } from 'src/app/placeholder/placeholder.directive';
-import { TodoformComponent } from '../todos/todoform/todoform.component';
+
+import { TodoformComponent } from '../todoform/todoform.component';
+import { TodoModel } from '../todos/todo.model';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +12,10 @@ import { TodoformComponent } from '../todos/todoform/todoform.component';
 })
 export class HeaderComponent implements OnInit {
 
+ 
   @ViewChild(PlaceholderDirective ) todoFormHost : PlaceholderDirective | undefined;
   private closeSub : Subscription | undefined;
+  
 
   constructor(private cfResolver :ComponentFactoryResolver) { }
 
@@ -30,5 +34,6 @@ export class HeaderComponent implements OnInit {
     });
     
   }
+
 
 }
