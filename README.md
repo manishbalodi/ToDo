@@ -1,27 +1,12 @@
 # Todo
+Access using below link 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+https://todo-467ed.web.app/
 
-## Development server
+# Screenshots
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![image](https://user-images.githubusercontent.com/88163207/132254782-d4ce4273-7081-42b7-b388-fe1af1ca8af2.png)
+![image](https://user-images.githubusercontent.com/88163207/132254833-b6db525a-f88a-4d46-ad1c-142f58af105b.png)
+![image](https://user-images.githubusercontent.com/88163207/132254866-4e39413d-0ed2-4b8b-b3bd-52e26aae2df2.png)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
