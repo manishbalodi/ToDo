@@ -1,6 +1,7 @@
 # Todo
 Access using below link 
 
+will work fine until page is reloaded
 https://todo-467ed.web.app/
 
 # Screenshots
